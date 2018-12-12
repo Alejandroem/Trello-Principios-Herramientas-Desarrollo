@@ -14,22 +14,26 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <h2>With this app you can list the cards of a trello board</h2>
+        <h3>By: José Alejandro Enríquez Marroquin</h3>
       </div>
       <div class="col-md-4"></div>
-      <div class="col-md-6">
-        <form class="form-inline">
-          <div class="form-group mx-sm-3 mb-2">
-            <label for="boardId" class="sr-only">Board Id</label>
-            <input type="text" class="form-control" id="boardId" placeholder="Board Id">
-          </div>
-          <button type="submit" class="btn btn-primary mb-2">List them all!</button>
-        </form>
+      <div class="col-md-4">
+        <label for="boardId" class="sr-only">Board Id</label>
+        <input type="text" class="form-control" id="boardId" value="{{boardId}}" placeholder="Board Id">        
       </div>
+      <div class="col-md-4">
+          <button (click)="listTheCards()" class="btn btn-primary mb-2">List them all!</button>
+      </div>
+    </div>
+    <div class="row">
+        <app-trello-card
+          *ngFor="let card of cards"
+          [cardName]="card.name"></app-trello-card>
     </div>
   </div>
   <!-- Optional JavaScript -->

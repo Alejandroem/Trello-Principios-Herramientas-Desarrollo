@@ -22,10 +22,12 @@ export class AppComponent {
 
 
   listTheCards() {
+    this.cards = [];
     this.client.get(this.apiUrl)
       .toPromise()
-      .then(result => {
+      .then((result: any[]) => {
         console.log("Success ", result);
+        this.cards = result;
       })
       .catch(err => {
         console.log("Error ", err);
