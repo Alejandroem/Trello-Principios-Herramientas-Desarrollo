@@ -24,7 +24,7 @@
       <div class="col-md-4"></div>
       <div class="col-md-4">
         <label for="boardId" class="sr-only">Board Id</label>
-        <input type="text" class="form-control" id="boardId" value="{{boardId}}" placeholder="Board Id">        
+        <input type="text" class="form-control" id="boardId" [(ngModel)]="boardId" placeholder="Board Id">        
       </div>
       <div class="col-md-4">
           <button (click)="listTheCards()" class="btn btn-primary mb-2">List them all!</button>

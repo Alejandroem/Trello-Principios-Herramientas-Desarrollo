@@ -13,7 +13,6 @@ export class AppComponent {
   key = '5aa543c21de894bf5b74e888f687fcee';
   token = '31cad91d673e6962cfff97cbd615c027db63d237edbc9b83a4284c6618b198ab';
   boardId = 'nC8QJJoZ';
-  apiUrl = `https://api.trello.com/1/boards/${this.boardId}/cards/?key=${this.key}&token=${this.token}`;
 
   cards: any[] = [];
   constructor(private client: HttpClient) {
@@ -23,7 +22,8 @@ export class AppComponent {
 
   listTheCards() {
     this.cards = [];
-    this.client.get(this.apiUrl)
+    let apiUrl = `https://api.trello.com/1/boards/${this.boardId}/cards/?key=${this.key}&token=${this.token}`;
+    this.client.get(apiUrl)
       .toPromise()
       .then((result: any[]) => {
         console.log("Success ", result);
